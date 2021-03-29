@@ -1,6 +1,16 @@
 source "https://rubygems.org"
 
-# Installing both. Why choose??
+ruby '3.0.0'
 
-gem "minitest"
-gem "rspec"
+group :development, :test do
+  gem 'guard-bundler'
+  gem 'guard-rspec'
+  gem 'minitest'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'rake'
+  gem 'rb-fsevent'
+  gem 'rspec'
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
+end

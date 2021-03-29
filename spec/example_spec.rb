@@ -1,5 +1,7 @@
-describe "example test" do
-  it "should pass" do
+# frozen_string_literal: true
+
+RSpec.describe 'example test' do
+  it 'should pass' do
     expect(true).to be_truthy
   end
 end

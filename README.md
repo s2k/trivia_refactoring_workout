@@ -1,5 +1,10 @@
-Test Frameworks
-===============
+# Why this exists
+
+It's a preparation of a Refactoring Workout.
+This repo's history start as a copy of @jbrains' https://github.com/jbrains/trivia and updates a few things right away: RSpec and the `expect` notation, as well as using [Guard](https://github.com/guard/guard) to provide feedback as immediate as possible: when saving a file.
+
+
+# Test Frameworks
 
 This repo has configuration and example files for both RSpec and minitest. The
 RSpec files are in `/spec` and the minitest files are in `/test`.

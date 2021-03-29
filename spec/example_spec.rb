@@ -1,7 +1,5 @@
-require 'spec_helper'
-
 describe "example test" do
   it "should pass" do
-    true.should == true
+    expect(true).to be_truthy
   end
 end

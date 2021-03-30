@@ -57,8 +57,7 @@ module UglyTrivia
           @is_getting_out_of_penalty_box = true
 
           puts "#{@players[@current_player]} is getting out of the penalty box"
-          @places[@current_player] = @places[@current_player] + roll
-          @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+          advance_played_by(roll)
 
           puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
           puts "The category is #{current_category}"
@@ -70,8 +69,7 @@ module UglyTrivia
 
       else
 
-        @places[@current_player] = @places[@current_player] + roll
-        @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+        advance_played_by(roll)
 
         puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
         puts "The category is #{current_category}"
@@ -93,6 +91,11 @@ module UglyTrivia
       CATEGORIES[@places[@current_player] % CATEGORIES.size]
     end
 
+    def next_player
+      @current_player += 1
+      @current_player = 0 if @current_player == @players.length
+    end
+
     public
 
     def was_correctly_answered
@@ -103,13 +106,11 @@ module UglyTrivia
           puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
           winner          = did_player_win()
-          @current_player += 1
-          @current_player = 0 if @current_player == @players.length
+          next_player
 
           winner
         else
-          @current_player += 1
-          @current_player = 0 if @current_player == @players.length
+          next_player
           true
         end
 
@@ -120,8 +121,7 @@ module UglyTrivia
         puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
         winner          = did_player_win
-        @current_player += 1
-        @current_player = 0 if @current_player == @players.length
+        next_player
 
         return winner
       end
@@ -132,12 +132,16 @@ module UglyTrivia
       puts "#{@players[@current_player]} was sent to the penalty box"
       @in_penalty_box[@current_player] = true
 
-      @current_player += 1
-      @current_player = 0 if @current_player == @players.length
+      next_player
       return true
     end
 
     private
+
+    def advance_played_by(roll)
+      @places[@current_player] = @places[@current_player] + roll
+      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+    end
 
     def did_player_win
       !(@purses[@current_player] == 6)

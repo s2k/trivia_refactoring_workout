@@ -1,6 +1,6 @@
 module UglyTrivia
   class Game
-    CATEGORIES  = %w[Pop Science Sports Rock]
+    CATEGORIES = %w[Pop Science Sports Rock].freeze
 
     def initialize
       @players        = []
@@ -28,7 +28,7 @@ module UglyTrivia
       "Rock Question #{index}"
     end
 
-    def is_playable?
+    def playable?
       how_many_players >= 2
     end
 
@@ -92,8 +92,7 @@ module UglyTrivia
     end
 
     def next_player
-      @current_player += 1
-      @current_player = 0 if @current_player == @players.length
+      @current_player = (@current_player + 1) % @players.length
     end
 
     public
@@ -105,9 +104,8 @@ module UglyTrivia
           @purses[@current_player] += 1
           puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
-          winner          = did_player_win()
+          winner  = did_player_win
           next_player
-
           winner
         else
           next_player
@@ -120,10 +118,9 @@ module UglyTrivia
         @purses[@current_player] += 1
         puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
-        winner          = did_player_win
+        winner = did_player_win
         next_player
-
-        return winner
+        winner
       end
     end
 
@@ -133,7 +130,7 @@ module UglyTrivia
       @in_penalty_box[@current_player] = true
 
       next_player
-      return true
+      true
     end
 
     private

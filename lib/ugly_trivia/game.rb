@@ -95,7 +95,7 @@ module UglyTrivia
     def correct_answer_steps
       puts 'Answer was correct!!!!'
       @purses[@current_player] += 1
-      puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
+      puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coin#{ @purses[@current_player] != 1 ? 's' : ''}."
 
       winner = did_player_win
       next_player

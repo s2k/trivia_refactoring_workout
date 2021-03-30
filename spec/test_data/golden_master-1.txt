@@ -24,7 +24,7 @@ Sue's new location is 1
 The category is Science
 Science Question 2
 Answer was correct!!!!
-Sue now has 1 Gold Coins.
+Sue now has 1 Gold Coin.
 Chet is the current player
 They have rolled a 3
 Chet is getting out of the penalty box
@@ -32,7 +32,7 @@ Chet's new location is 8
 The category is Pop
 Pop Question 0
 Answer was correct!!!!
-Chet now has 1 Gold Coins.
+Chet now has 1 Gold Coin.
 Pat is the current player
 They have rolled a 4
 Pat is not getting out of the penalty box
@@ -84,7 +84,7 @@ Pat's new location is 8
 The category is Pop
 Pop Question 2
 Answer was correct!!!!
-Pat now has 1 Gold Coins.
+Pat now has 1 Gold Coin.
 Sue is the current player
 They have rolled a 4
 Sue's new location is 5

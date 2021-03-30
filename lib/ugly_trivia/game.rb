@@ -1,5 +1,7 @@
 module UglyTrivia
   class Game
+    CATEGORIES  = %w[Pop Science Sports Rock]
+
     def initialize
       @players        = []
       @places         = Array.new(6, 0)
@@ -86,8 +88,9 @@ module UglyTrivia
       puts @rock_questions.shift if current_category == 'Rock'
     end
 
+
     def current_category
-      %w[Pop Science Sports Rock Pop Science Sports Rock Pop Science Sports Rock ][@places[@current_player]]
+      CATEGORIES[@places[@current_player] % CATEGORIES.size]
     end
 
     public

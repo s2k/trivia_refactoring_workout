@@ -22,7 +22,7 @@ module UglyTrivia
       end
     end
 
-    def create_rock_question(index)
+    def create_rock_question(index, list = [])
       "Rock Question #{index}"
     end
 

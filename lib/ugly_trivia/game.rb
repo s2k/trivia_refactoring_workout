@@ -121,8 +121,7 @@ module UglyTrivia
     end
 
     def advance_played_by(roll)
-      @places[@current_player] = @places[@current_player] + roll
-      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+      @places[@current_player] = (@places[@current_player] + roll) % 12
     end
 
     def did_player_win

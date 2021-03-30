@@ -1,17 +1,17 @@
 module UglyTrivia
   class Game
-    def  initialize
-      @players = []
-      @places = Array.new(6, 0)
-      @purses = Array.new(6, 0)
+    def initialize
+      @players        = []
+      @places         = Array.new(6, 0)
+      @purses         = Array.new(6, 0)
       @in_penalty_box = Array.new(6, nil)
 
-      @pop_questions = []
+      @pop_questions     = []
       @science_questions = []
-      @sports_questions = []
-      @rock_questions = []
+      @sports_questions  = []
+      @rock_questions    = []
 
-      @current_player = 0
+      @current_player                = 0
       @is_getting_out_of_penalty_box = false
 
       50.times do |i|
@@ -32,8 +32,8 @@ module UglyTrivia
 
     def add(player_name)
       @players.push player_name
-      @places[how_many_players] = 0
-      @purses[how_many_players] = 0
+      @places[how_many_players]         = 0
+      @purses[how_many_players]         = 0
       @in_penalty_box[how_many_players] = false
 
       puts "#{player_name} was added"
@@ -77,7 +77,7 @@ module UglyTrivia
       end
     end
 
-  private
+    private
 
     def ask_question
       puts @pop_questions.shift if current_category == 'Pop'
@@ -99,7 +99,7 @@ module UglyTrivia
       return 'Rock'
     end
 
-  public
+    public
 
     def was_correctly_answered
       if @in_penalty_box[@current_player]
@@ -108,7 +108,7 @@ module UglyTrivia
           @purses[@current_player] += 1
           puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
-          winner = did_player_win()
+          winner          = did_player_win()
           @current_player += 1
           @current_player = 0 if @current_player == @players.length
 
@@ -119,15 +119,13 @@ module UglyTrivia
           true
         end
 
-
-
       else
 
         puts "Answer was corrent!!!!"
         @purses[@current_player] += 1
         puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
-        winner = did_player_win
+        winner          = did_player_win
         @current_player += 1
         @current_player = 0 if @current_player == @players.length
 
@@ -136,16 +134,16 @@ module UglyTrivia
     end
 
     def wrong_answer
-  		puts 'Question was incorrectly answered'
-  		puts "#{@players[@current_player]} was sent to the penalty box"
-  		@in_penalty_box[@current_player] = true
+      puts 'Question was incorrectly answered'
+      puts "#{@players[@current_player]} was sent to the penalty box"
+      @in_penalty_box[@current_player] = true
 
       @current_player += 1
       @current_player = 0 if @current_player == @players.length
-  		return true
+      return true
     end
 
-  private
+    private
 
     def did_player_win
       !(@purses[@current_player] == 6)

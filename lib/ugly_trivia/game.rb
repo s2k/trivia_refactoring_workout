@@ -25,11 +25,6 @@ module UglyTrivia
 
     def create_questions_for topic, total_number
       Array.new(total_number) { |i| "#{topic} Question #{i}" }
-
-    end
-
-    def create_question_for topic, number
-      "#{topic} Question #{number}"
     end
 
     def playable?

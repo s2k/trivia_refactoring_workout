@@ -32,7 +32,7 @@ module UglyTrivia
       how_many_players >= 2
     end
 
-    def add(player_name, player_names = [])
+    def add(player_name, player_names = [player_name])
       @players.push player_name
       @places[how_many_players]         = 0
       @purses[how_many_players]         = 0

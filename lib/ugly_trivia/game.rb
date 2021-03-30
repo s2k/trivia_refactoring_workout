@@ -16,12 +16,16 @@ module UglyTrivia
       @current_player                = 0
       @is_getting_out_of_penalty_box = false
 
-      50.times do |i|
-        @pop_questions.push "Pop Question #{i}"
-        @science_questions.push "Science Question #{i}"
-        @sports_questions.push "Sports Question #{i}"
-        @rock_questions.push create_question_for 'Rock', i
+      @questions = {}
+      CATEGORIES.each do |category|
+        @questions[category] = create_questions_for(category, 50)
       end
+
+    end
+
+    def create_questions_for topic, total_number
+      Array.new(total_number) { |i| "#{topic} Question #{i}" }
+
     end
 
     def create_question_for topic, number
@@ -81,10 +85,10 @@ module UglyTrivia
     private
 
     def ask_question
-      puts @pop_questions.shift if current_category == 'Pop'
-      puts @science_questions.shift if current_category == 'Science'
-      puts @sports_questions.shift if current_category == 'Sports'
-      puts @rock_questions.shift if current_category == 'Rock'
+      puts @questions['Pop'].shift if current_category == 'Pop'
+      puts @questions['Science'].shift if current_category == 'Science'
+      puts @questions['Sports'].shift if current_category == 'Sports'
+      puts @questions['Rock'].shift if current_category == 'Rock'
     end
 
 

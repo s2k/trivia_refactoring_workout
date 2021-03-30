@@ -23,7 +23,7 @@ module UglyTrivia
     end
 
     def create_rock_question(index, list = [index])
-      "Rock Question #{index}"
+      "Rock Question #{list.first}"
     end
 
     def is_playable?

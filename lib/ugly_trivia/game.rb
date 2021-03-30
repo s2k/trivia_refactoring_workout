@@ -80,10 +80,7 @@ module UglyTrivia
     private
 
     def ask_question
-      puts @questions['Pop'].shift if current_category == 'Pop'
-      puts @questions['Science'].shift if current_category == 'Science'
-      puts @questions['Sports'].shift if current_category == 'Sports'
-      puts @questions['Rock'].shift if current_category == 'Rock'
+      puts @questions[current_category].shift
     end
 
 

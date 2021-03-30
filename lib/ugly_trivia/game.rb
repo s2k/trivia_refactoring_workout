@@ -49,23 +49,14 @@ module UglyTrivia
           @is_getting_out_of_penalty_box = true
 
           puts "#{current_player_name} is getting out of the penalty box"
-          advance_played_by(roll)
-
-          puts "#{current_player_name}'s new location is #{@places[@current_player]}"
-          puts "The category is #{current_category}"
-          ask_question
+          perform_move(roll)
         else
           puts "#{current_player_name} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
         end
 
       else
-
-        advance_played_by(roll)
-
-        puts "#{current_player_name}'s new location is #{@places[@current_player]}"
-        puts "The category is #{current_category}"
-        ask_question
+        perform_move(roll)
       end
     end
 
@@ -89,6 +80,17 @@ module UglyTrivia
     end
 
     private
+
+    def perform_move(roll)
+      advance_played_by(roll)
+      log_new_location_and_category
+      ask_question
+    end
+
+    def log_new_location_and_category
+      puts "#{current_player_name}'s new location is #{@places[@current_player]}"
+      puts "The category is #{current_category}"
+    end
 
     def current_player_name
       @players[@current_player]

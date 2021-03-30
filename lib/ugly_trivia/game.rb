@@ -49,7 +49,6 @@ module UglyTrivia
         puts "#{player_name} was added"
         puts "They are player number #{@players.length}"
       end
-      true
     end
 
     def roll(roll)

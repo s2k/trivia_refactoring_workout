@@ -23,7 +23,7 @@ module UglyTrivia
     end
 
     def create_rock_question(*list)
-      "Rock Question #{list.first}"
+      list.map { |index| "Rock Question #{list.first}" }.join
     end
 
     def is_playable?

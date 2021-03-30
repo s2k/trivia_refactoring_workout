@@ -87,7 +87,7 @@ module UglyTrivia
     end
 
     def current_category
-      return %w[Pop Science Sports Rock Pop Science Sports Rock Pop Science Sports Rock ][@places[@current_player]]
+      %w[Pop Science Sports Rock Pop Science Sports Rock Pop Science Sports Rock ][@places[@current_player]]
     end
 
     public

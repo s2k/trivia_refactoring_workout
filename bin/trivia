@@ -14,16 +14,4 @@ game = UglyTrivia::Game.new
 
 %w[Chet Pat Sue].each{ |player| game.add player }
 
-begin
-
-  game.roll(rand(5) + 1)
-
-  if rand(9) == 7
-    not_a_winner = game.wrong_answer
-  else
-    not_a_winner = game.correct_answer
-  end
-
-
-
-end while not_a_winner
+game.play

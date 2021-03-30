@@ -19,6 +19,18 @@ module UglyTrivia
       end
     end
 
+    def play
+      begin
+        roll(rand(5) + 1)
+        if rand(9) == 7
+          not_a_winner = wrong_answer
+        else
+          not_a_winner = correct_answer
+        end
+      end while not_a_winner
+
+    end
+
     def create_questions_for(topic, total_number)
       Array.new(total_number) { |i| "#{topic} Question #{i}" }
     end

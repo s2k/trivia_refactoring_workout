@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UglyTrivia
   class Game
     CATEGORIES = %w[Pop Science Sports Rock].freeze
@@ -15,10 +17,9 @@ module UglyTrivia
       CATEGORIES.each do |category|
         @questions[category] = create_questions_for(category, 50)
       end
-
     end
 
-    def create_questions_for topic, total_number
+    def create_questions_for(topic, total_number)
       Array.new(total_number) { |i| "#{topic} Question #{i}" }
     end
 
@@ -27,7 +28,7 @@ module UglyTrivia
     end
 
     def add(*player_names)
-      player_names.each{|player_name|
+      player_names.each do |player_name|
         @players.push player_name
         @places[how_many_players]         = 0
         @purses[how_many_players]         = 0
@@ -35,7 +36,7 @@ module UglyTrivia
 
         puts "#{player_name} was added"
         puts "They are player number #{@players.length}"
-      }
+      end
       true
     end
 
@@ -101,7 +102,6 @@ module UglyTrivia
       puts @questions[current_category].shift
     end
 
-
     def current_category
       CATEGORIES[@places[@current_player] % CATEGORIES.size]
     end
@@ -113,7 +113,7 @@ module UglyTrivia
     def correct_answer_steps
       puts 'Answer was correct!!!!'
       @purses[@current_player] += 1
-      puts "#{current_player_name} now has #{@purses[@current_player]} Gold Coin#{ @purses[@current_player] != 1 ? 's' : ''}."
+      puts "#{current_player_name} now has #{@purses[@current_player]} Gold Coin#{@purses[@current_player] == 1 ? '' : 's'}."
 
       winner = did_player_win
       next_player
@@ -126,7 +126,7 @@ module UglyTrivia
     end
 
     def did_player_win
-      !(@purses[@current_player] == 6)
+      @purses[@current_player] != 6
     end
   end
 end

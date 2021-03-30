@@ -41,7 +41,7 @@ module UglyTrivia
 
     def add(*player_names)
       player_names.each do |player_name|
-        @players.push player_name
+        @players << player_name
         @places << 0
         @purses << 0
         @in_penalty_box << false

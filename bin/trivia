@@ -4,8 +4,6 @@ $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib")
 
 require 'ugly_trivia/game'
 
-not_a_winner = false
-
 if ARGV.first.match? /\A\d+\z/
   Random.srand(ARGV.first.to_i)
 end

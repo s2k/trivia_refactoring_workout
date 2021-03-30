@@ -110,7 +110,6 @@ module UglyTrivia
           correct_answer_steps
         else
           next_player
-          true
         end
       else
         correct_answer_steps
@@ -121,9 +120,7 @@ module UglyTrivia
       puts 'Question was incorrectly answered'
       puts "#{@players[@current_player]} was sent to the penalty box"
       @in_penalty_box[@current_player] = true
-
       next_player
-      true
     end
 
     private

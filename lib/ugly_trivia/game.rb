@@ -22,8 +22,8 @@ module UglyTrivia
       end
     end
 
-    def create_rock_question(*list)
-      list.map { |index| "Rock Question #{index}" }.join
+    def create_rock_question(index)
+      "Rock Question #{index}"
     end
 
     def is_playable?

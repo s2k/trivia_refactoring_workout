@@ -33,14 +33,15 @@ module UglyTrivia
     end
 
     def add(*player_names)
-      @players.push player_names.first
-      @places[how_many_players]         = 0
-      @purses[how_many_players]         = 0
-      @in_penalty_box[how_many_players] = false
+      player_names.each do |player|
+        @players.push player_names.first
+        @places[how_many_players]         = 0
+        @purses[how_many_players]         = 0
+        @in_penalty_box[how_many_players] = false
 
-      puts "#{player_names.first} was added"
-      puts "They are player number #{@players.length}"
-
+        puts "#{player_names.first} was added"
+        puts "They are player number #{@players.length}"
+      end
       true
     end
 

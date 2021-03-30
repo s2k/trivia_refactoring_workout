@@ -72,7 +72,7 @@ module UglyTrivia
       end
     end
 
-    def was_correctly_answered
+    def correct_answer
       if @in_penalty_box[@current_player]
         if @is_getting_out_of_penalty_box
           correct_answer_steps

@@ -96,7 +96,7 @@ module UglyTrivia
       return 'Sports' if @places[@current_player] == 2
       return 'Sports' if @places[@current_player] == 6
       return 'Sports' if @places[@current_player] == 10
-      return 'Rock'
+      'Rock'
     end
 
     public

@@ -121,8 +121,6 @@ module UglyTrivia
       winner
     end
 
-    private
-
     def advance_played_by(roll)
       @places[@current_player] = @places[@current_player] + roll
       @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11

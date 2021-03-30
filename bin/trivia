@@ -12,9 +12,7 @@ end
 
 game = UglyTrivia::Game.new
 
-game.add 'Chet'
-game.add 'Pat'
-game.add 'Sue'
+%w[Chet Pat Sue].each{ |player| game.add player }
 
 begin
 

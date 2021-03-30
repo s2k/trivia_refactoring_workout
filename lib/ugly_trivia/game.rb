@@ -77,6 +77,25 @@ module UglyTrivia
       end
     end
 
+    def was_correctly_answered
+      if @in_penalty_box[@current_player]
+        if @is_getting_out_of_penalty_box
+          correct_answer_steps
+        else
+          next_player
+        end
+      else
+        correct_answer_steps
+      end
+    end
+
+    def wrong_answer
+      puts 'Question was incorrectly answered'
+      puts "#{@players[@current_player]} was sent to the penalty box"
+      @in_penalty_box[@current_player] = true
+      next_player
+    end
+
     private
 
     def ask_question
@@ -100,27 +119,6 @@ module UglyTrivia
       winner = did_player_win
       next_player
       winner
-    end
-
-    public
-
-    def was_correctly_answered
-      if @in_penalty_box[@current_player]
-        if @is_getting_out_of_penalty_box
-          correct_answer_steps
-        else
-          next_player
-        end
-      else
-        correct_answer_steps
-      end
-    end
-
-    def wrong_answer
-      puts 'Question was incorrectly answered'
-      puts "#{@players[@current_player]} was sent to the penalty box"
-      @in_penalty_box[@current_player] = true
-      next_player
     end
 
     private

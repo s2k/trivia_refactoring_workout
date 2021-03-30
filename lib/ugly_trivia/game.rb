@@ -20,12 +20,12 @@ module UglyTrivia
         @pop_questions.push "Pop Question #{i}"
         @science_questions.push "Science Question #{i}"
         @sports_questions.push "Sports Question #{i}"
-        @rock_questions.push create_rock_question(i)
+        @rock_questions.push create_question_for 'Rock', i
       end
     end
 
-    def create_rock_question(index)
-      "Rock Question #{index}"
+    def create_question_for topic, number
+      "#{topic} Question #{number}"
     end
 
     def playable?

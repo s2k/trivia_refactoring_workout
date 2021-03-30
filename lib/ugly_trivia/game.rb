@@ -44,21 +44,21 @@ module UglyTrivia
     end
 
     def roll(roll)
-      puts "#{current_player} is the current player"
+      puts "#{current_player_name} is the current player"
       puts "They have rolled a #{roll}"
 
       if @in_penalty_box[@current_player]
         if roll.odd?
           @is_getting_out_of_penalty_box = true
 
-          puts "#{current_player} is getting out of the penalty box"
+          puts "#{current_player_name} is getting out of the penalty box"
           advance_played_by(roll)
 
-          puts "#{current_player}'s new location is #{@places[@current_player]}"
+          puts "#{current_player_name}'s new location is #{@places[@current_player]}"
           puts "The category is #{current_category}"
           ask_question
         else
-          puts "#{current_player} is not getting out of the penalty box"
+          puts "#{current_player_name} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
         end
 
@@ -66,7 +66,7 @@ module UglyTrivia
 
         advance_played_by(roll)
 
-        puts "#{current_player}'s new location is #{@places[@current_player]}"
+        puts "#{current_player_name}'s new location is #{@places[@current_player]}"
         puts "The category is #{current_category}"
         ask_question
       end
@@ -86,14 +86,14 @@ module UglyTrivia
 
     def wrong_answer
       puts 'Question was incorrectly answered'
-      puts "#{current_player} was sent to the penalty box"
+      puts "#{current_player_name} was sent to the penalty box"
       @in_penalty_box[@current_player] = true
       next_player
     end
 
     private
 
-    def current_player
+    def current_player_name
       @players[@current_player]
     end
 
@@ -113,7 +113,7 @@ module UglyTrivia
     def correct_answer_steps
       puts 'Answer was correct!!!!'
       @purses[@current_player] += 1
-      puts "#{current_player} now has #{@purses[@current_player]} Gold Coin#{ @purses[@current_player] != 1 ? 's' : ''}."
+      puts "#{current_player_name} now has #{@purses[@current_player]} Gold Coin#{ @purses[@current_player] != 1 ? 's' : ''}."
 
       winner = did_player_win
       next_player

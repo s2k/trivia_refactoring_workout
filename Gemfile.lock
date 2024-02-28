@@ -61,7 +61,7 @@ GEM
     terminal-notifier (2.0.0)
     terminal-notifier-guard (1.7.0)
     thor (1.1.0)
-    yard (0.9.26)
+    yard (0.9.35)
 
 PLATFORMS
   ruby
